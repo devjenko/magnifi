@@ -4,76 +4,96 @@ const container = document.querySelector('.chart-container');
 const containerRect = container.getBoundingClientRect();
 const containerWidth = containerRect.width;
 const containerHeight = containerRect.height;
+const containerRadius = Math.min(containerWidth, containerHeight) / 2;
+const centerX = containerWidth / 2;
+const centerY = containerHeight / 2;
 
 const iconData = [];
 
 // Initialize icon data
 icons.forEach(icon => {
     const rect = icon.getBoundingClientRect();
+    const angle = Math.random() * 2 * Math.PI;
+    const distance = Math.random() * (containerRadius - Math.max(rect.width, rect.height) / 2);
     iconData.push({
         element: icon,
-        x: Math.random() * (containerWidth - rect.width),
-        y: Math.random() * (containerHeight - rect.height),
+        x: centerX + distance * Math.cos(angle),
+        y: centerY + distance * Math.sin(angle),
         vx: (Math.random() - 0.5) * 2,
         vy: (Math.random() - 0.5) * 2,
         width: rect.width,
-        height: rect.height
+        height: rect.height,
+        radius: Math.max(rect.width, rect.height) / 2
     });
 });
 
 function animate() {
-    iconData.forEach(icon => {
+    const len = iconData.length;
+    for (let i = 0; i < len; i++) {
+        const icon = iconData[i];
+        
         // Update position
         icon.x += icon.vx;
         icon.y += icon.vy;
 
-        // Bounce off walls
-        if (icon.x < 0 || icon.x > containerWidth - icon.width) {
-            icon.vx *= -1;
-        }
-        if (icon.y < 0 || icon.y > containerHeight - icon.height) {
-            icon.vy *= -1;
+        // Check and handle circular boundary collision
+        const dx = icon.x - centerX;
+        const dy = icon.y - centerY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const maxDistance = containerRadius - icon.radius;
+
+        if (distance > maxDistance) {
+            // Collision with circular boundary
+            const angle = Math.atan2(dy, dx);
+            const nx = Math.cos(angle);
+            const ny = Math.sin(angle);
+
+            // Reflect velocity
+            const dotProduct = icon.vx * nx + icon.vy * ny;
+            icon.vx -= 2 * dotProduct * nx;
+            icon.vy -= 2 * dotProduct * ny;
+
+            // Adjust position to be on the boundary
+            icon.x = centerX + maxDistance * nx;
+            icon.y = centerY + maxDistance * ny;
         }
 
         // Check collision with other icons
-        iconData.forEach(otherIcon => {
-            if (icon !== otherIcon) {
-                const dx = otherIcon.x - icon.x;
-                const dy = otherIcon.y - icon.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                const minDistance = (icon.width + otherIcon.width) / 2;
+        for (let j = i + 1; j < len; j++) {
+            const otherIcon = iconData[j];
+            const dx = otherIcon.x - icon.x;
+            const dy = otherIcon.y - icon.y;
+            const distanceSquared = dx * dx + dy * dy;
+            const minDistance = icon.radius + otherIcon.radius;
+            const minDistanceSquared = minDistance * minDistance;
 
-                if (distance < minDistance) {
-                    // Collision detected, reverse velocities
-                    const angle = Math.atan2(dy, dx);
-                    const sin = Math.sin(angle);
-                    const cos = Math.cos(angle);
+            if (distanceSquared < minDistanceSquared) {
+                // Collision detected, reverse velocities
+                const distance = Math.sqrt(distanceSquared);
+                const nx = dx / distance;
+                const ny = dy / distance;
 
-                    // Rotate velocities
-                    const vx1 = icon.vx * cos + icon.vy * sin;
-                    const vy1 = icon.vy * cos - icon.vx * sin;
-                    const vx2 = otherIcon.vx * cos + otherIcon.vy * sin;
-                    const vy2 = otherIcon.vy * cos - otherIcon.vx * sin;
+                const p = 2 * (icon.vx * nx + icon.vy * ny - otherIcon.vx * nx - otherIcon.vy * ny) / (icon.radius + otherIcon.radius);
 
-                    // Swap velocities
-                    icon.vx = vx2 * cos - vy1 * sin;
-                    icon.vy = vy2 * cos + vx1 * sin;
-                    otherIcon.vx = vx1 * cos - vy2 * sin;
-                    otherIcon.vy = vy1 * cos + vx2 * sin;
+                icon.vx -= p * otherIcon.radius * nx;
+                icon.vy -= p * otherIcon.radius * ny;
+                otherIcon.vx += p * icon.radius * nx;
+                otherIcon.vy += p * icon.radius * ny;
 
-                    // Move icons apart to prevent sticking
-                    const overlap = minDistance - distance;
-                    icon.x -= overlap * cos / 2;
-                    icon.y -= overlap * sin / 2;
-                    otherIcon.x += overlap * cos / 2;
-                    otherIcon.y += overlap * sin / 2;
-                }
+                // Move icons apart to prevent sticking
+                const overlap = minDistance - distance;
+                const moveX = overlap * nx / 2;
+                const moveY = overlap * ny / 2;
+                icon.x -= moveX;
+                icon.y -= moveY;
+                otherIcon.x += moveX;
+                otherIcon.y += moveY;
             }
-        });
+        }
 
         // Apply new position
-        icon.element.style.transform = `translate(${icon.x}px, ${icon.y}px)`;
-    });
+        icon.element.style.transform = `translate(${icon.x - icon.radius}px, ${icon.y - icon.radius}px)`;
+    }
 
     requestAnimationFrame(animate);
 }
