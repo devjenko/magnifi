@@ -30,6 +30,12 @@
     text-decoration: none;
 }
 
+html{
+    overflow-x: hidden;
+}
+
+
+
 
 li{
     list-style-type: none;
@@ -143,7 +149,35 @@ h1, h2, h3, a{
 
  .section-3 .img-container{
     margin: 0 auto;
+    
  }
+
+.chart-container{
+    display: flex;
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+
+.chart-icon{
+    position: absolute;
+    max-width: 30px; 
+    max-height: 30px; 
+    background-size: cover; 
+    cursor: grab;
+    transition: cursor 0.3s ease;
+    pointer-events: auto;
+}
+
+.chart-icon:active{
+    cursor: grabbing;
+}
+
 
 .section-4{
     padding: 3em 1.5em;
@@ -261,19 +295,6 @@ button{
     max-width: fit-content;
 }
 
-.primary-btn:hover{
-    transform: scale(1.01);
-    background-color: #235ddb;
-    -webkit-transform: scale(1.01);
-    -moz-transform: scale(1.01);
-    -ms-transform: scale(1.01);
-    -o-transform: scale(1.01);
-
-}
-
-.primary-btn:hover  .right-arrow-icon{
-    padding: 0 0 0 20px;
-}
 
 .primary-link:hover  .primary-link-img{
     background-color: red;
@@ -410,9 +431,10 @@ nav ul, nav .primary-btn, .secondary-btn{
 
 img{
     max-width: 100%;
-    height: auto;
-   
+    height: auto; 
 }
+
+
 
 nav{
     padding: 1em;
@@ -474,7 +496,6 @@ section{
         margin: 0 auto;
     }
 
- 
 
 
     }
@@ -642,12 +663,6 @@ section{
         max-width: 2000px;
         margin: 0 auto; 
     }
-
-    nav{
-        margin: 0 auto;
-        max-width: 1600px;
-    }
-   
 
 }
 

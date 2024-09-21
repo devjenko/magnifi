@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Magnifico | Home</title>
+    <!-- CSS Files -->
     <link rel="stylesheet" href="/public/assets/styles/style.css">
+    <!-- CSS libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     
@@ -41,7 +45,7 @@
     <!--    HERO SECTION    -->
 
 <section id="hero" class="hero grid">
-<div class="text-container">
+<div class="text-container animate__animated animate__fadeInLeft">
     <h2>Team projects, <br> done well</h2>
     <p>The only platform that gives your team all the tools needed to work together on their awesome projects. </p>
 
@@ -69,7 +73,7 @@
 
     </div>
 
-    <div class="img-container">
+    <div class="img-container animate__animated animate__fadeInRight">
         <img src="/public/assets/img/hero-img-svg.svg" alt="a group of people looking at a laptop">
     </div>
 </div>
@@ -79,13 +83,13 @@
     <!--    SECTION 2    -->
 <section id="section-2" class="section-2 grid">
 
-    <div class="img-container">
+    <div class="img-container animate__animated animate__fadeInLeft">
         <img src="/public/assets/img/section-2-picture-1.svg" alt="a woman smiling">
         <img src="/public/assets/img/section-2-picture-2.svg" alt="a group of people smiling at a laptop">
         <img src="/public/assets/img/section-2-picture-3.svg" alt="a woman smiling at a laptop">
     </div>
 
-    <div class="text-container">
+    <div class="text-container animate__animated animate__fadeInRight">
         <h3>Enjoy your time working</h3>
         <p>Etiam condimentum duis molestie malesuada volutpat pellentesque sed. Ornare suspendisse ut ac neque lobortis sed tincidunt. Mi tempus quis massa tellus imperdiet aenean nulla id.</p>
         <div class="primary-link-container">
@@ -108,8 +112,23 @@
         </div>
     </div>
 
-    <div class="img-container">
-        <img src="/public/assets/img/section-3-chart.png" alt="tool chart">
+    <div class="img-container chart-container" data-aos="fade-left">
+        <div class="chart-container">
+        <img src="/public/assets/img/chart-section-3.svg" alt="tool chart" draggable="false">
+        <!-- chart icons -->
+         
+        <img class="chart-icon" src="/public/assets/img/App-icon-1.svg" alt="classroom-icon">
+        <img class="chart-icon" src="/public/assets/img/App-icon-2.svg" alt="calendar icon">
+        <img class="chart-icon" src="/public/assets/img/App-icon-5.svg" alt="swift icon">
+        <img class="chart-icon" src="/public/assets/img/App-icon-6.svg" alt="mail icon">
+        <img class="chart-icon" src="/public/assets/img/App-icon-7.svg" alt="mountain icon">
+        <img class="chart-icon" src="/public/assets/img/App-icon-9.svg" alt="shapes icon">
+        <img class="chart-icon" src="/public/assets/img/App-icon-10.svg" alt="infinity-icon">
+        <img class="chart-icon" src="/public/assets/img/App-icon-11.svg" alt="wifi icon">
+        <img class="chart-icon" src="/public/assets/img/App-icon-12.svg" alt="index icon">
+        <img class="chart-icon" src="/public/assets/img/App-icon-13.svg" alt="document icon">
+        <img class="chart-icon" src="/public/assets/img/App-icon-15.svg" alt="dropbox icon">
+    </div>
     </div>
     
 </section>
@@ -132,7 +151,7 @@
   <!--    SECTION 5    -->
      <section id="section-5" class="section-5 grid">
 
-        <div class="text-container">
+        <div class="text-container" data-aos="fade-right">
             <h3>Improve workflow</h3>
             <div class="button-container">
                 <button class="tertiary-btn">Research</button>
@@ -147,7 +166,7 @@
             
         </div>
 
-        <div class="img-container">
+        <div class="img-container" data-aos="fade-left">
             <img src="/public/assets/img/section-5-desktop-img.svg" alt="a group of people working on a project">
         </div>
       </div>
@@ -180,6 +199,14 @@
         </ul>
 </footer>
 
+<!-- JS -->
+<script src="/public/assets/js/icon-animation.js"></script>
 
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+  </script>
 </body>
 </html>
