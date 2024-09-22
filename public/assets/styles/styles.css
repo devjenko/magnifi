@@ -129,16 +129,19 @@ h1, h2, h3, a{
 @font-face {
     font-family: "Roboto Regular 400";
     src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+    font-display: swap;
   }
   
   @font-face {
     font-family: "Roboto Medium 500";
     src: url("../fonts/Roboto-Medium.ttf") format("truetype");
+    font-display: swap;
   }
   
   @font-face {
     font-family: "Roboto Bold 700";
     src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+    font-display: swap;
   }
 
 
