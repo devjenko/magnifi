@@ -1,4 +1,4 @@
-# Magnifi - Team Collaboration Platform
+# Magnifi - Team Collaboration Platform (Website)
 
 ## Overview
 
@@ -36,17 +36,6 @@ magnifi/
 └── README.md
 ```
 
-## Setup and Installation
-
-1. Clone the repository
-2. Open `index.html` in a web browser
-
-## Development
-
-To modify the website:
-1. Edit HTML in `index.html`
-2. Update styles in `css/styles.css`
-3. Modify JavaScript in `js/main.js`
 
 ## Deployment
 
