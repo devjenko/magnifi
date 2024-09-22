@@ -26,7 +26,7 @@ Magnifi is a comprehensive team collaboration platform designed to streamline pr
 - HTML5
 - CSS3
 - JavaScript
-- Responsive design principles
+- Responsive design principles with a mobile-first approach.
 
 ## Project Structure
 
