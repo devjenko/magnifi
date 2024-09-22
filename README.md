@@ -1,5 +1,5 @@
 # Magnifi - Team Collaboration Platform (Website)
-
+## 🚧 *This project is currently under active development.* 🚧
 ## Overview
 
 Magnifi is a comprehensive team collaboration platform designed to streamline project management and enhance productivity. This website showcases Magnifi's features and benefits for potential users.
