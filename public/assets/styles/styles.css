@@ -17,6 +17,7 @@
 --White:#FFFF;
 
 --Blue-Gray-300:#cbd5e14d;
+
 }
 
 /* ==========================================================================
@@ -124,20 +125,22 @@ h1, h2, h3, a{
 
 
 /*  FONT FAMILIES */
-@font-face{
+
+@font-face {
     font-family: "Roboto Regular 400";
-    src: url(/public/assets/fonts/Roboto-Regular.ttf);
-}
-
-@font-face {
+    src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+  }
+  
+  @font-face {
     font-family: "Roboto Medium 500";
-    src: url(/public/assets/fonts/Roboto-Medium.ttf);
-}
-
-@font-face {
+    src: url("../fonts/Roboto-Medium.ttf") format("truetype");
+  }
+  
+  @font-face {
     font-family: "Roboto Bold 700";
-    src: url(/public/assets/fonts/Roboto-Bold.ttf);
-}
+    src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+  }
+
 
 
 .section-2 .img-container{
