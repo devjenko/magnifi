@@ -186,7 +186,7 @@ h1, h2, h3, a{
     padding: 3em 1.5em;
     background-size: cover;
     background-position: center;
-    background:  linear-gradient(0deg, rgba(88, 28, 135, 0.75) 0%, rgba(88, 28, 135, 0.75) 100%), url(/public/assets/img/hot-air-ballons.jpg)  lightgray 50% / cover no-repeat; 
+    background:  linear-gradient(0deg, rgba(88, 28, 135, 0.75) 0%, rgba(88, 28, 135, 0.75) 100%), url(../img/hot-air.jpg)  lightgray 50% / cover no-repeat; 
 }
 
 .section-4 .secondary-btn {
@@ -299,9 +299,6 @@ button{
 }
 
 
-.primary-link:hover  .primary-link-img{
-    background-color: red;
-}
 
 .secondary-btn{
     padding: 12px 8px;
