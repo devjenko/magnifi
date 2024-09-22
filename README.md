@@ -52,9 +52,6 @@ To modify the website:
 
 The website can be deployed on any standard web hosting service.
 
-## Contributing
-
-We welcome contributions! Please see our contributing guidelines for more details.
 
 ## License
 
