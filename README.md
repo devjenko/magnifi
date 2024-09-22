@@ -8,7 +8,7 @@ Magnifi is a comprehensive team collaboration platform designed to streamline pr
 
 ![magnifi-3](https://github.com/user-attachments/assets/47b27f58-c0c3-4330-8ccd-cc04db97b5a6)
 
-
+Live Demo - https://magnifii.netlify.app/
 
 
 
