@@ -294,7 +294,6 @@ input, textarea {
 /* Feature cards */
 .feature-card {
     box-shadow: 4px 4px 4px 6px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
     border-radius: 8px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;

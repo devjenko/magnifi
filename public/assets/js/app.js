@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const currentPage = window.location.pathname.split('/').pop();
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('#nav-link');
     const homeLink = document.querySelector('nav a[href="/public/index.html"]');
 
