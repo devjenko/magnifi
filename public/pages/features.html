@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magnifi | Features</title>
+    <title>Features | Magnifi</title>
         <!-- CSS Files -->
         <link rel="stylesheet" href="../assets/styles/styles.css">
         <!-- CSS libraries -->
@@ -17,17 +17,17 @@
         <div class="menu-container">
     
             <a href="../index.html"><h1>magnifi</h1></a> 
-            <button class="menu-btn"><img src="assets/img/hamburger-menu-icon.svg" alt="menu icon"></button>
+            <button class="menu-btn"><img src="../assets/img/hamburger-menu-icon.svg" alt="menu icon"></button>
         </div>
     
         <div class="link-container">
     
         
             <ul>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="use-cases.html">Use Cases</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
+                <li><a id="nav-link" href="features.html">Features</a></li>
+                <li><a id="nav-link" href="use-cases.html">Use Cases</a></li>
+                <li><a id="nav-link" href="resources.html">Resources</a></li>
+                <li><a id="nav-link" href="pricing.html">Pricing</a></li>
             </ul>
         </div>
     
@@ -38,6 +38,105 @@
         </div>
     
     </nav>
+
+    <main>
+   <section class="features grid">
+    <h3 class=" features-h3 animate__animated animate__fadeIn">Unleash your full potential with our best features</h3>
+
+    <div class="feature-container">
+
+    <div class="feature-card animate__animated animate__fadeInUp">
+       <picture><img srcset="../assets/img/task-management.jpg" alt="A person managing tasks" loading="lazy"></picture>
+        <div class="feature-text-container">
+        <h4>Streamlined Task Management</h4>
+        <p>Organize, assign, and track tasks effortlessly. Keep your team aligned and projects on schedule.</p>
+        <button class="tertiary-btn">Learn More</button>
+    </div>
+    </div>
+
+    
+    <div class="feature-card animate__animated animate__fadeInUp">
+        <picture><img srcset="../assets/img/file-sharing.jpg" alt="two people sharing files between devices" loading="lazy"></picture>
+        <div class="feature-text-container">
+        <h4>Seamless File Sharing</h4>
+        <p>Share, edit, and collaborate on documents in real-time. Keep all your project files in one central location.</p>
+        <button class="tertiary-btn">Learn More</button>
+        </div>
+    </div>
+
+    <div class="feature-card animate__animated animate__fadeInUp">
+        <picture><img srcset="../assets/img/video-meeting.jpg" alt="A person having a video meeting with colleagues" loading="lazy"></picture>
+        <div class="feature-text-container">
+            <h4>Integrated Video Meetings</h4>
+            <p>Host virtual meetings, screen share, and collaborate face-to-face, all within the Magnifi platform.</p>
+            <button class="tertiary-btn">Learn More</button>
+        </div>
+        
+    </div>
+
+    <div class="feature-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+        <picture><img srcset="../assets/img/workflow-automation.jpg" alt="Tasks being automated by Magnifi" loading="lazy"></picture>
+        <div class="feature-text-container">
+            <h4>Intelligent Workflow Automation</h4>
+            <p>Streamline repetitive tasks and processes. Boost productivity with smart automation tools.</p>
+            <button class="tertiary-btn">Learn More</button>
+        </div>
+        
+    </div>
+
+    <div class="feature-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+        <picture><img srcset="../assets/img/team-chat-messaging.jpg" alt="Team messaging on the Magnifi platform" loading="lazy"></picture>
+        <div class="feature-text-container">
+            <h4>Team Chat &amp; Messaging</h4>
+            <p>Stay connected with instant messaging, group chats, and threaded conversations.</p>
+            <button class="tertiary-btn">Learn More</button>
+        </div>
+        
+    </div>
+
+    <div class="feature-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+        <picture><img srcset="../assets/img/insightful-analytics.jpg" alt="Magnifi offering analytics for teams" loading="lazy"></picture>
+        <div class="feature-text-container">
+            <h4>Insightful Analytics</h4>
+            <p>Gain valuable insights into team performance and project progress with detailed reports and dashboards.</p>
+            <button class="tertiary-btn">Learn More</button>
+        </div>
+        
+    </div>
+
+    
+
+    
+
+
+</div>
+   </section>
+    </main>
+
+    <footer id="footer">
+        <div class="footer-container">
+            <strong>magnifi</strong>
+            <p>@2024. All rights reserved.</p>
+        </div>
+            <ul>
+                <li><a href="">Terms</a></li>
+                <li><a href="">Privacy</a></li>
+                <li><a href="">Support</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Resources</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+    </footer>
+    
+    <!-- JS -->
+     <script src="../assets/js/app.js"></script>
+    
+    
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
     
 </body>
 </html>
