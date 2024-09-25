@@ -314,6 +314,28 @@ input, textarea {
     object-fit: cover;
   }
 
+  .hero .img-container img{
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+  .section-2 .img-container img{
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
   .feature-text-container{
     padding: 1rem 1rem 1rem .5rem;
   }
