@@ -251,6 +251,7 @@ button {
     gap: 8px;
     transition: all 0.15s ease;
     width: 100%;
+    
 }
 
 input, textarea {
@@ -314,7 +315,7 @@ input, textarea {
     object-fit: cover;
   }
 
-  .hero .img-container img{
+  .hero .img-container img, .section-5 .img-container img{
     height: 500px;
     width: 100%;
     object-fit: cover;
@@ -335,6 +336,8 @@ input, textarea {
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
 }
+
+
 
   .feature-text-container{
     padding: 1rem 1rem 1rem .5rem;
@@ -476,9 +479,7 @@ footer p, footer a {
    ========================================================================== */
 /* Small Tablet Styles */
 @media screen and (min-width: 620px) {
-    .input-container img {
-        display: inline-flex;
-    }
+
 
     section {
         padding: 5em;
