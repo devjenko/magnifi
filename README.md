@@ -33,16 +33,17 @@ Live Demo - https://magnifii.netlify.app/
 ## Project Structure
 
 ```
-magnifi/
+public/
 │
+├── assets/
+│   ├── fonts/
+│   ├── img/
+│   └── js/
+├── styles/
+├── pages/
 ├── index.html
-├── css/
-│   └── styles.css
-├── js/
-│   └── main.js
-├── images/
-│   ├── logo.png
-│   └── ...
+├── .gitattributes
+├── LICENSE
 └── README.md
 ```
 
