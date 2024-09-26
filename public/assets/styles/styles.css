@@ -564,18 +564,7 @@ footer a {
 
 
 
-    .img-container,
-    .text-container,
-    .section-2 .text-container,
-    .section-2 .img-container,
-    .section-4 .text-container,
-    .section-4 .img-container,
-    .section-3 .text-container,
-    .section-3 .img-container,
-    .section-5 .text-container,
-    .section-5 .img-container {
-        grid-column: span 6;
-    }
+ 
 
     .hero .img-container,
     .section-4 .text-container,
@@ -609,7 +598,7 @@ footer a {
 
 
     .section-3 .text-container {
-        grid-column: 2/6;
+        grid-column: 2/7;
     }
 
     .section-3 .img-container {
