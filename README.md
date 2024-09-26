@@ -50,7 +50,7 @@ public/
 
 ## Deployment
 
-The website can be deployed on any standard web hosting service.
+Netlify.
 
 
 ## License
