@@ -4,9 +4,11 @@
 
 Magnifi is a comprehensive team collaboration platform designed to streamline project management and enhance productivity. This website showcases Magnifi's features and benefits for potential users.
 
-![magnifi-1](https://github.com/user-attachments/assets/487da6d5-c9fe-4660-b1d3-9aed6facf36b)
+![magnifi-1](https://github.com/user-attachments/assets/3533a98a-6f2b-4904-ad3c-91f636750902)
+![magnifi-2](https://github.com/user-attachments/assets/bfe545b0-70e0-460c-99a0-1f7218baf588)
+![magnifi-3](https://github.com/user-attachments/assets/5b05e947-0b66-411f-b4eb-78b53c79583d)
+![magnifi-4](https://github.com/user-attachments/assets/224f6e4e-a73a-44cc-8b5e-43793d3041f9)
 
-![magnifi-3](https://github.com/user-attachments/assets/47b27f58-c0c3-4330-8ccd-cc04db97b5a6)
 
 Live Demo - https://magnifii.netlify.app/
 
@@ -31,23 +33,24 @@ Live Demo - https://magnifii.netlify.app/
 ## Project Structure
 
 ```
-magnifi/
+public/
 │
+├── assets/
+│   ├── fonts/
+│   ├── img/
+│   └── js/
+├── styles/
+├── pages/
 ├── index.html
-├── css/
-│   └── styles.css
-├── js/
-│   └── main.js
-├── images/
-│   ├── logo.png
-│   └── ...
+├── .gitattributes
+├── LICENSE
 └── README.md
 ```
 
 
 ## Deployment
 
-The website can be deployed on any standard web hosting service.
+Netlify.
 
 
 ## License
