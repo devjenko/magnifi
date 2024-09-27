@@ -5,6 +5,8 @@ let containerRect, containerWidth, containerHeight, containerRadius, centerX, ce
 let iconData = [];
 let animationFrameId;
 let isInViewport = false;
+let lastScrollTime = 0;
+let lastResizeTime = 0;
 
 function initializeContainer() {
     containerRect = container.getBoundingClientRect();
@@ -22,7 +24,11 @@ function initializeIcons() {
             element: icon,
             width: rect.width,
             height: rect.height,
-            radius: Math.max(rect.width, rect.height) / 2
+            radius: Math.max(rect.width, rect.height) / 2,
+            x: 0,
+            y: 0,
+            vx: 0,
+            vy: 0
         };
     });
     
@@ -37,8 +43,8 @@ function resetIconPositions() {
         icon.y = centerY + distance * Math.sin(angle);
         icon.vx = (Math.random() - 0.5) * 0.5;
         icon.vy = (Math.random() - 0.5) * 0.5;
-        icon.element.style.transform = `translate(${icon.x - icon.width / 2}px, ${icon.y - icon.height / 2}px)`;
     });
+    updateIconsDOM();
 }
 
 function updateIconPosition(icon) {
@@ -57,14 +63,22 @@ function updateIconPosition(icon) {
         icon.vx *= -0.8;
         icon.vy *= -0.8;
     }
+}
 
-    icon.element.style.transform = `translate(${icon.x - icon.width / 2}px, ${icon.y - icon.height / 2}px)`;
+function updateIconsDOM() {
+    iconData.forEach(icon => {
+        icon.element.style.transform = `translate(${icon.x - icon.width / 2}px, ${icon.y - icon.height / 2}px)`;
+    });
 }
 
 function animate() {
-    if (!isInViewport) return;
+    if (!isInViewport) {
+        animationFrameId = requestAnimationFrame(animate);
+        return;
+    }
     
     iconData.forEach(updateIconPosition);
+    updateIconsDOM();
     animationFrameId = requestAnimationFrame(animate);
 }
 
@@ -73,22 +87,15 @@ function startAnimation() {
     initializeContainer();
     initializeIcons();
     checkInViewport();
-    if (isInViewport) {
-        animate();
-    }
-}
-
-function stopAnimation() {
-    if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-        animationFrameId = null;
-    }
+    animate();
 }
 
 function handleResize() {
+    const now = Date.now();
+    if (now - lastResizeTime < 100) return;
+    lastResizeTime = now;
     
-    stopAnimation();
-    
+    startAnimation();
 }
 
 function checkInViewport() {
@@ -99,27 +106,26 @@ function checkInViewport() {
         rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + rect.height &&
         rect.right <= (window.innerWidth || document.documentElement.clientWidth) + rect.width
     );
+}
+
+function handleScroll() {
+    const now = Date.now();
+    if (now - lastScrollTime < 100) return;
+    lastScrollTime = now;
     
-    if (isInViewport && !animationFrameId) {
-        animate();
-    } else if (!isInViewport && animationFrameId) {
-        stopAnimation();
-    }
+    checkInViewport();
 }
 
 function initializeAnimation() {
     if (container && icons.length > 0) {
         startAnimation();
         window.addEventListener('resize', handleResize);
-        window.addEventListener('scroll', checkInViewport);
+        window.addEventListener('scroll', handleScroll);
     } else {
         console.error('Container or icons not found. Ensure the DOM is loaded before running the script.');
     }
 }
 
-// Use both DOMContentLoaded and load events to ensure initialization
 document.addEventListener('DOMContentLoaded', initializeAnimation);
 window.addEventListener('load', initializeAnimation);
-
-// Fallback initialization after a short delay
 setTimeout(initializeAnimation, 1000);
