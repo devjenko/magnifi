@@ -1,10 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const animationStyles = document.getElementById('animation-styles');
-    animationStyles.removeAttribute('disabled');
-});
 
 
-
+// Triggers css underline class to underline links on each page when cycling through site pages
 document.addEventListener('DOMContentLoaded', function() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('#nav-link');
