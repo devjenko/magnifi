@@ -1,4 +1,7 @@
-
+document.addEventListener('DOMContentLoaded', function() {
+    const animationStyles = document.getElementById('animation-styles');
+    animationStyles.removeAttribute('disabled');
+});
 
 
 
