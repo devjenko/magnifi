@@ -9,6 +9,7 @@
     <!-- CSS libraries -->
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -16,8 +17,16 @@
 <nav id="nav" class="nav grid">
     <div class="menu-container">
 
-        <a href="index.html"><h1>magnifi</h1></a> 
-        <button class="menu-btn"><img src="assets/img/hamburger-menu-icon.svg" alt="menu icon"></button>
+        <a href="index.html"><h1>magnifi</h1></a>
+
+        <!-- hamburger menu -->
+        <div class="ham-menu" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        
     </div>
 
     <div class="link-container">
@@ -41,6 +50,16 @@
 
 
 <main>
+    
+<!-- MOBILE MENU NAVIGATION -->
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="pages/features.html">Features</a></li>
+            <li><a href="pages/use-cases.html">Use Cases</a></li>
+            <li><a href="pages/resources.html">Resources</a></li>
+            <li><a href="pages/pricing.html">Pricing</a></li>
+        </ul>
+    </div>
 
     <!--    HERO SECTION    -->
 
@@ -53,7 +72,7 @@
     
     <div class="input-container">
         <img srcset="assets/img/email-icon.svg" alt="Email icon">
-        <input type="text" name="email-entry" id="email-entry" placeholder="Enter work email" >
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
     </div>
 
     <button class="primary-btn"><span>Sign Up Free</span> <img class="right-arrow-icon" src="assets/img/arrow-right-white.svg" alt="a right arrow icon"></button>
@@ -203,6 +222,7 @@
 <!-- JS -->
  <script src="assets/js/app.js"></script>
 <script src="assets/js/icon-animation.js"></script>
+
 
 
 <!-- AOS -->

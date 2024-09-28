@@ -1,3 +1,17 @@
+const hamMenu = document.querySelector(".ham-menu");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+
+function toggleMenu(){
+    mobileMenu.classList.toggle("active");
+}
+
+
+hamMenu.addEventListener("click", toggleMenu());
+
+document.addEventListener("DOMContentLoaded", function() {
+    mobileMenu.classList.remove("active");
+});
 
 
 // Triggers css underline class to underline links on each page when cycling through site pages

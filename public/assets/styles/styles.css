@@ -209,6 +209,58 @@ button {
     max-width: fit-content;
 }
 
+.ham-menu{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    grid-column: 5;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2;
+  
+
+}
+
+.bar{
+    width: 25px;
+    height: 3px;
+    background-color: var(--Blue-Gray-900);
+    border-radius: 8px;
+}
+
+.mobile-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    height: 100vh;
+    background-color: var(--White);
+    width: 70%;
+    z-index: 1;
+    right: -700px;
+    transition: 0.3s ease;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    box-shadow: 4px 4px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu ul li a{
+    color: var(--Blue-Gray-900);
+    font-size: 18px;
+    line-height: 1.5;
+    padding: 12px 16px; /* This creates a larger touch target */
+    display: block; 
+}
+
+.mobile-menu.active{
+    right: 0;
+    top: 0;
+}
+
 .primary-btn {
     padding: 12px;
     background: var(--Blue-600);
@@ -382,7 +434,7 @@ textarea {
 nav {
     padding: 1em;
     border-bottom: 1px solid rgba(128, 128, 128, 0.192);
-    text-wrap: nowrap;
+    text-wrap: nowrap;  
 }
 
 nav ul,
@@ -394,6 +446,7 @@ nav .primary-btn,
 .menu-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    
 }
 
 .menu-btn {
@@ -662,7 +715,7 @@ footer a {
         padding: 0 0 0 8px;
     }
 
-    .menu-btn {
+    .ham-menu, .mobile-menu {
         display: none;
     }
 
