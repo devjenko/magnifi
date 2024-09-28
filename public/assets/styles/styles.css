@@ -218,15 +218,32 @@ button {
     align-items: center;
     cursor: pointer;
     z-index: 2;
-  
+
 
 }
+
+
+/* X transformation */
+.ham-menu.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.ham-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.ham-menu.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
 
 .bar{
     width: 25px;
     height: 3px;
     background-color: var(--Blue-Gray-900);
     border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 .mobile-menu{

@@ -3,6 +3,7 @@ const mobileMenu = document.querySelector(".mobile-menu");
 
 
 function toggleMenu(){
+    hamMenu.classList.toggle("active");
     mobileMenu.classList.toggle("active");
 }
 
@@ -10,6 +11,7 @@ function toggleMenu(){
 hamMenu.addEventListener("click", toggleMenu());
 
 document.addEventListener("DOMContentLoaded", function() {
+    hamMenu.classList.remove("active");
     mobileMenu.classList.remove("active");
 });
 
