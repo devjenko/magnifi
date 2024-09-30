@@ -256,7 +256,7 @@ button {
     background-color: var(--White);
     width: 100%;
     z-index: 1;
-    right: -700px;
+    right: -2000px;
     transition: 0.3s ease;
     box-shadow: 4px 4px 4px 6px rgba(0, 0, 0, 0.1);
     -webkit-transition: 0.3s ease;
