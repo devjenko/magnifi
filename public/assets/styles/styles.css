@@ -95,6 +95,7 @@ h3 {
 
 h1 {
     font-size: 32px;
+    
 }
 
 h2,
@@ -247,26 +248,38 @@ button {
 }
 
 .mobile-menu{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-top: 13%;
     position: fixed;
     height: 100vh;
     background-color: var(--White);
     width: 60%;
     z-index: 1;
     right: -700px;
-    transition: 0.2s ease-in-out;
+    transition: 0.3s ease;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     box-shadow: 4px 4px 4px 6px rgba(0, 0, 0, 0.1);
-    -webkit-transition: 0.2s ease-in-out;
-    -moz-transition: 0.2s ease-in-out;
-    -ms-transition: 0.2s ease-in-out;
-    -o-transition: 0.2s ease-in-out;
+    -webkit-transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+}
+
+.mobile-menu ul{
+    width: 100%;
+
+}
+
+.mobile-menu ul li{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.192);
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    
 }
 
 .mobile-menu ul li a{
