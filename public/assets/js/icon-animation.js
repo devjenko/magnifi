@@ -1,5 +1,4 @@
-// Make sure to include the GSAP library in your project
-// import { gsap } from 'gsap';
+
 
 const container = document.querySelector('.chart-container');
 const icons = document.querySelectorAll('.chart-icon');
