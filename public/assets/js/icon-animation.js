@@ -1,12 +1,12 @@
-
-
 const container = document.querySelector('.chart-container');
 const icons = document.querySelectorAll('.chart-icon');
 
 let containerRect, containerWidth, containerHeight, containerRadius, centerX, centerY;
 let iconData = [];
+let animationFrameId;
 let isInViewport = false;
-let animationPaused = false;
+let lastScrollTime = 0;
+let lastResizeTime = 0;
 
 function initializeContainer() {
     containerRect = container.getBoundingClientRect();
@@ -47,88 +47,73 @@ function resetIconPositions() {
     updateIconsDOM();
 }
 
-function updateIconPositions() {
-    iconData.forEach(icon => {
-        icon.x += icon.vx;
-        icon.y += icon.vy;
+function updateIconPosition(icon) {
+    icon.x += icon.vx;
+    icon.y += icon.vy;
 
-        const dx = icon.x - centerX;
-        const dy = icon.y - centerY;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        const maxDistance = containerRadius - icon.radius;
+    const dx = icon.x - centerX;
+    const dy = icon.y - centerY;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    const maxDistance = containerRadius - icon.radius;
 
-        if (distance > maxDistance) {
-            const angle = Math.atan2(dy, dx);
-            icon.x = centerX + maxDistance * Math.cos(angle);
-            icon.y = centerY + maxDistance * Math.sin(angle);
-            icon.vx *= -0.8;
-            icon.vy *= -0.8;
-        }
-    });
+    if (distance > maxDistance) {
+        const angle = Math.atan2(dy, dx);
+        icon.x = centerX + maxDistance * Math.cos(angle);
+        icon.y = centerY + maxDistance * Math.sin(angle);
+        icon.vx *= -0.8;
+        icon.vy *= -0.8;
+    }
 }
 
 function updateIconsDOM() {
     iconData.forEach(icon => {
-        gsap.set(icon.element, {
-            x: icon.x - icon.width / 2,
-            y: icon.y - icon.height / 2
-        });
+        icon.element.style.transform = `translate(${icon.x - icon.width / 2}px, ${icon.y - icon.height / 2}px)`;
     });
 }
 
 function animate() {
-    if (!animationPaused) {
-        updateIconPositions();
-        updateIconsDOM();
+    if (!isInViewport) {
+        animationFrameId = requestAnimationFrame(animate);
+        return;
     }
+    
+    iconData.forEach(updateIconPosition);
+    updateIconsDOM();
+    animationFrameId = requestAnimationFrame(animate);
 }
 
 function startAnimation() {
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
     initializeContainer();
     initializeIcons();
     checkInViewport();
-    
-    if (isInViewport && !animationPaused) {
-        gsap.ticker.add(animate);
-    }
-}
-
-function pauseAnimation() {
-    animationPaused = true;
-    gsap.ticker.remove(animate);
-}
-
-function resumeAnimation() {
-    animationPaused = false;
-    gsap.ticker.add(animate);
+    animate();
 }
 
 function handleResize() {
-    pauseAnimation();
-    gsap.delayedCall(0.1, () => {
-        startAnimation();
-    });
+    const now = Date.now();
+    if (now - lastResizeTime < 100) return;
+    lastResizeTime = now;
+    
+    startAnimation();
 }
 
 function checkInViewport() {
     const rect = container.getBoundingClientRect();
-    const wasInViewport = isInViewport;
     isInViewport = (
-        rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.bottom > 0 &&
-        rect.left < (window.innerWidth || document.documentElement.clientWidth) &&
-        rect.right > 0
+        rect.top >= -rect.height &&
+        rect.left >= -rect.width &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + rect.height &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth) + rect.width
     );
-
-    if (isInViewport && !wasInViewport) {
-        resumeAnimation();
-    } else if (!isInViewport && wasInViewport) {
-        pauseAnimation();
-    }
 }
 
 function handleScroll() {
-    gsap.delayedCall(0.1, checkInViewport);
+    const now = Date.now();
+    if (now - lastScrollTime < 100) return;
+    lastScrollTime = now;
+    
+    checkInViewport();
 }
 
 function initializeAnimation() {
@@ -141,25 +126,6 @@ function initializeAnimation() {
     }
 }
 
-// Use MutationObserver to detect when the container is added to the DOM
-const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-        if (mutation.type === 'childList') {
-            const addedNodes = mutation.addedNodes;
-            for (let i = 0; i < addedNodes.length; i++) {
-                if (addedNodes[i].matches && addedNodes[i].matches('.chart-container')) {
-                    observer.disconnect();
-                    initializeAnimation();
-                    break;
-                }
-            }
-        }
-    });
-});
-
-observer.observe(document.body, { childList: true, subtree: true });
-
-// Fallback initialization
 document.addEventListener('DOMContentLoaded', initializeAnimation);
 window.addEventListener('load', initializeAnimation);
 setTimeout(initializeAnimation, 1000);
