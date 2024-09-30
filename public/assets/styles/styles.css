@@ -69,30 +69,23 @@ img {
 /* ==========================================================================
    4. Typography
    ========================================================================== */
-@font-face {
-    font-family: "Roboto Regular 400";
-    src: url("../fonts/Roboto-Regular.ttf") format("truetype");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Roboto Medium 500";
-    src: url("../fonts/Roboto-Medium.ttf") format("truetype");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Roboto Bold 700";
-    src: url("../fonts/Roboto-Bold.ttf") format("truetype");
-    font-display: swap;
-}
+   @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap');
 
 h1,
 h2,
-h3 {
+h3
+ {
     color: var(--Blue-Gray-900);
     line-height: 110%;
-    font-family: "Roboto Bold 700";
+    font-family: "Roboto", system-ui;
+    font-weight: 700;
+    font-style: normal;
+}
+
+li, a{
+    font-weight: 500;
+    font-family: "Roboto", system-ui;
+    font-style: normal;
 }
 
 h1 {
@@ -114,21 +107,20 @@ h4 {
 p,
 input,
 textarea {
-    font-family: "Roboto Regular 400";
+    font-family: "Roboto", system-ui;
+    font-weight: 400;
+    font-style: normal;
     color: var(--Blue-Gray-600);
     line-height: 150%;
 }
 
-a,
-li {
-    color: var(--Blue-Gray-900);
-    font-family: "Roboto Bold 700";
-}
 
 button,
 strong,
 h4 {
-    font-family: "Roboto Medium 500";
+    font-family: "Roboto", system-ui;
+    font-weight: 500;
+    font-style: normal;
 }
 
 nav ul li a,
@@ -584,7 +576,9 @@ footer ul li:nth-child(5) {
 }
 
 footer ul li a {
-    font-family: "Roboto Regular 400";
+    font-family: "Roboto", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
 
 footer p,
@@ -710,6 +704,7 @@ footer a {
     nav .primary-btn,
     .secondary-btn {
         display: inline-flex;
+        
     }
 
     .nav-btn-container {
@@ -717,7 +712,7 @@ footer a {
         display: flex;
         gap: 1rem;
         width: 300px;
-        flex-grow: 1;
+        
     }
 
     .link-container {
