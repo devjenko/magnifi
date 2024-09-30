@@ -248,7 +248,7 @@ button {
 }
 
 .mobile-menu{
-    margin-top: 13%;
+    margin-top: 7.4vh;
     position: fixed;
     height: 100vh;
     background-color: var(--White);
